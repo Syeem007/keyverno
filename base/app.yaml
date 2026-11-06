@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-org/your-git-repo.git' # Update to your repo URL
+    repoURL: 'https://github.com/Syeem007/keyverno.git'
     targetRevision: main
-    path: base # Path where your kustomization.yaml lives
+    path: base
     kustomize:
       buildOptions: "--enable-helm"
   destination:
@@ -19,10 +19,10 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true
-      - Replace=true # Required for large CRDs in Kyverno
+      - CreateNamespace=true  # Automatically creates the missing 'kyverno' namespace
+      - ServerSideApply=true  # Fixes the 262144 bytes annotation size error on large CRDs
   ignoreDifferences:
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
       jsonPointers:
-        - /rules # Prevents diff noise on dynamic aggregated cluster roles
+        - /rules
