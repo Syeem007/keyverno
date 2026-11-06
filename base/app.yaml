@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/your-org/your-git-repo.git' # Update to your repo URL
     targetRevision: main
-    path: kyverno/base # Path where your kustomization.yaml lives
+    path: base # Path where your kustomization.yaml lives
     kustomize:
       buildOptions: "--enable-helm"
   destination:
