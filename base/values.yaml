@@ -1,0 +1,26 @@
+# Replica counts for high availability
+admissionController:
+  replicaCount: 2
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+backgroundController:
+  replicaCount: 1
+
+reportsController:
+  replicaCount: 1
+
+# Optional: Configure logging format or verbosity (1-5)
+logFormat: json
+logging:
+  verbosity: 2
+
+# Optional: Enable metrics collection for Prometheus
+metricsConfig:
+  otelCollector:
+    enabled: false
